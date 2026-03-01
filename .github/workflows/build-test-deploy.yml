@@ -8,9 +8,9 @@ jobs:
         uses: actions/checkout@v3
       - run: echo "$(cat hello_world.txt)"
       - name: use node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: "18.x"
+          node-version: "24.x"
       - run: npm install
       - run: npm run build
 
@@ -21,9 +21,9 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
       - name: use node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: "18.x"
+          node-version: "24.x"
       - run: npm install
       - run: npm test
 
@@ -46,12 +46,12 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: use node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: "18.x"
+          node-version: "24.x"
 
       - name: configure github pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
         with:
           static_site_generator: next
 
@@ -64,4 +64,4 @@ jobs:
           path: "./out"
       - name: deploy to github pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
